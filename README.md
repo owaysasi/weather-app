@@ -2,4 +2,4 @@
 
 Here is a screenshot of the app:
 
-![Weather App Screenshot](public/images/weather_app.jpg)
+![Weather App Screenshot](public/images/weather-app.jpg)
