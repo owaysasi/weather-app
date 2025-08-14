@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import SearchBar from "./components/SearchBar";
 import WeatherCard from "./components/WeatherCard";
-import Loader from "./components/Loader/Loader";
+import Loader from "./components/Loader";
 import "./index.css";
 
 const App: React.FC = () => {
   const [weatherData, setWeatherData] = useState<any>(null);
-  const [background, setBackground] = useState<string>("/images/sunny.jpeg");
+  const [background, setBackground] = useState<string>(
+    "/weather-app/images/sunny.jpeg"
+  );
   const [loading, setLoading] = useState(false);
   const [error, setError] = React.useState<string | null>(null);
 
@@ -15,16 +17,16 @@ const App: React.FC = () => {
     switch (weatherCode) {
       case 0: // Clear sky
       case 1: // Mainly clear
-        return "/images/sunny.jpeg";
+        return "/weather-app/images/sunny.jpeg";
       case 2: // Partly cloudy
       case 3: // Overcast
-        return "/images/cloudy.jpeg";
+        return "/weather-app/images/cloudy.jpeg";
       case 61: // Rain
-        return "/images/rainy.jpeg";
+        return "/weather-app/images/rainy.jpeg";
       case 71: // Snow
-        return "/images/snowy.jpeg";
+        return "/weather-app/images/snowy.jpeg";
       default:
-        return "/images/sunny.jpeg"; // fallback image
+        return "/weather-app/images/sunny.jpeg"; // fallback image
     }
   };
 
@@ -49,8 +51,7 @@ const App: React.FC = () => {
 
     setTimeout(async () => {
       try {
-        const { latitude, longitude } = await fetchCoordinates(city);
-        console.log(latitude, "latitude");
+        const { latitude, longitude } = await fetchCoordinates(city.trim());
 
         const response = await fetch(
           `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=auto`
