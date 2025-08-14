@@ -20,6 +20,11 @@
   font-family: Arial, sans-serif;
 }
 
+.title {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
 /* Overlay for contrast */
 .overlay {
   background-color: rgba(0, 0, 0, 0.4);

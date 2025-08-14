@@ -92,6 +92,7 @@ const App: React.FC = () => {
       }}
     >
       <div className="overlay app-container">
+        <h1 className="title">Weather App</h1>
         <div className="content search-container">
           <SearchBar onSearch={handleSearch} />
         </div>
